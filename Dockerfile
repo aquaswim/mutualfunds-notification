@@ -1,9 +1,11 @@
 FROM python:alpine
 
-WORKDIR /app
-COPY ["run.sh", "requirement.txt", "./"]
+RUN apk add --no-cache tzdata
 
-RUN pip install --no-cache-dir -r requirement.txt
+WORKDIR /app
+COPY ["run.sh", "requirements.txt", "./"]
+
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
