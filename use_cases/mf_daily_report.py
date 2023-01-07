@@ -1,7 +1,7 @@
 from array import array
-from src.outputs.output_interface import OutputInterface
-from src.data_source.data_source_interface import DataSourceInterface
-from src.entities.mutual_fund import MutualFund
+from outputs.output_interface import OutputInterface
+from data_source.data_source_interface import DataSourceInterface
+from entities.mutual_fund import MutualFund
 
 
 def _format_mf_data(mf_data: MutualFund) -> str:

@@ -1,4 +1,4 @@
-from src.entities.mutual_fund import MutualFund
+from entities.mutual_fund import MutualFund
 
 
 class DataSourceInterface:

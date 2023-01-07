@@ -1,6 +1,6 @@
 import requests
-from src.data_source.data_source_interface import DataSourceInterface
-from src.entities.mutual_fund import MutualFund
+from data_source.data_source_interface import DataSourceInterface
+from entities.mutual_fund import MutualFund
 
 
 def _create_mf_entity_from_response(resp) -> MutualFund:

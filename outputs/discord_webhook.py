@@ -1,5 +1,5 @@
 import requests
-from src.outputs.output_interface import OutputInterface
+from outputs.output_interface import OutputInterface
 
 
 class DiscordWebhook(OutputInterface):
