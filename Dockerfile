@@ -1,12 +1,13 @@
-FROM python:alpine
-
-RUN apk add --no-cache tzdata
+FROM golang:alpine as builder
 
 WORKDIR /app
-COPY ["run.sh", "requirements.txt", "./"]
-
-RUN pip install --no-cache-dir -r requirements.txt
-
 COPY . .
+RUN go mod tidy
+RUN go build -o aya cmd/aya.go
 
-CMD ["./run.sh"]
+FROM alpine
+RUN apk add --no-cache tzdata
+COPY --from=builder /app/aya /usr/local/bin/aya
+
+
+ENTRYPOINT ["aya"]
