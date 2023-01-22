@@ -1,9 +1,8 @@
 FROM golang:alpine as builder
 
 WORKDIR /app
-COPY go.mod go.sum ./
-RUN go mod tidy
 COPY . .
+RUN go mod tidy
 RUN go build -o aya cmd/aya.go
 
 FROM alpine
