@@ -40,7 +40,7 @@ func init() {
 	}
 	reportCron = os.Getenv("REPORT_CRONTAB")
 	if reportCron == "" {
-		reportCron = "0 17 * * *"
+		reportCron = "0 0 17 * * *"
 	}
 	mfProductIdsRaw := os.Getenv("MF_PRODUCT_IDS")
 	mfProductIds = strings.Split(mfProductIdsRaw, ",")
