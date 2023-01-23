@@ -10,11 +10,17 @@ import (
 var client = &http.Client{}
 
 func SendJsonRequest(method string, url string, body interface{}, out interface{}) error {
-	payload, err := json.Marshal(body)
-	if err != nil {
-		return err
+	var buff *bytes.Buffer
+	if body != nil {
+		payload, err := json.Marshal(body)
+		if err != nil {
+			return err
+		}
+		buff = bytes.NewBuffer(payload)
+	} else {
+		buff = bytes.NewBuffer(nil)
 	}
-	req, err := http.NewRequest(method, url, bytes.NewBuffer(payload))
+	req, err := http.NewRequest(method, url, buff)
 	if err != nil {
 		return err
 	}
