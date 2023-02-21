@@ -9,7 +9,7 @@
 1. clone this repo
 2. install dependency
    ```go mod download```
-3. set the required env**
+3. set the required *env**
 4. run the main
    ```go run cmd/aya```
 
